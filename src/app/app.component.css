@@ -7,9 +7,6 @@
   }
 
   .card-container {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* justify-content: center; */
     margin-top: 16px;
   }
 
@@ -34,8 +31,9 @@
     
   }
 
-  .navbar-light .navbar-nav .nav-link {
-    color: #fff;
-    font-size: 15px;
-    font-style: normal;
-  }
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+  font-size: 15px;
+  font-style: normal;
+}
+
