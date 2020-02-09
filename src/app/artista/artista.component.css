@@ -7,11 +7,39 @@
 }
 
 .artista img {
-    width: 200px;    
+    width: 250px;    
     border-radius: 10px;    
 }
 
-.artista ul {
+ul {
     list-style: none;
     padding: 0;
+}
+
+.album {
+    text-align: center;
+    float: left;
+    width: 50% !important;
+}
+
+.album h4 {
+    margin-bottom: 20px;
+}
+
+.album img {
+    width: 200px;
+    border-radius: 10px;    
+}
+
+.album p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.album ul li {
+    margin-bottom: 35px !important;
+}
+
+.genero {
+    text-align: center;
 }

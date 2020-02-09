@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">            
+        <div class="col-md-6">            
             
             <label>Buscar artista</label>
             <input type="text" class="form-control" (keyup)="buscaArtistas(artista.value)" #artista />
             
             <div class="resultados">
                 <div *ngFor="let artista of artistas" [routerLink]="['/artista', artista.id]" class="card" style="width: 18rem;">
-                    <img src="{{ apiUrl }}/{{ artista.foto }}" class="card-img-top">
+                    <img src="{{ apiUrl }}/{{ artista.foto }}" class="card-img-top" />
                     <div class="card-body">
                       <h5 class="card-title text-center">{{ artista.nome }}</h5>        
                     </div>

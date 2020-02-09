@@ -3,25 +3,35 @@
         <div class="col-md-12">            
             
             <div class="artista">
-                <img src="{{ apiUrl }}/{{ artista.foto }}">
+                <img src="{{ apiUrl }}/{{ artista.foto }}" />
 
                 <h2>{{ artista.nome }}</h2>
                 <p>{{ artista.popularidade }} ouvintes mensais</p>
+            </div>  
 
+            <div class="album">
                 <h4>Álbuns</h4>
+                
                 <ul>
                     <li *ngFor="let album of artista.albuns">
-                        {{ album.nome }}
+                        <img src="{{ apiUrl }}/albuns/{{ album.imagem }}" />  
+                        <p>
+                            <b>{{ album.nome }}</b><br/>
+                            Data de lançamento: {{ album.data_lancamento }}
+                        </p>
+                        
                     </li>
                 </ul>
-
+            </div>  
+            
+            <div class="genero">
                 <h4>Gêneros</h4>
                 <ul>
                     <li *ngFor="let genero of artista.generos">
                         {{ genero.descricao }}
                     </li>
-                </ul>                
-            </div>
+                </ul> 
+            </div>     
             
         </div>  
     </div>
