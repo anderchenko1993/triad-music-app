@@ -1,0 +1,17 @@
+h2 {
+    color: #1976d2;
+    /* color: #fe7400; */
+    font-weight: bold;
+}
+
+.buttons {
+    margin-top: 15%;
+}
+
+.buttons .btn {
+    /* background-color: #fe7400;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    font-size: 20px; */
+}
