@@ -1,0 +1,17 @@
+.artista {
+    text-align: center;
+}
+
+.artista h2 {
+    margin-top: 10px;
+}
+
+.artista img {
+    width: 200px;    
+    border-radius: 10px;    
+}
+
+.artista ul {
+    list-style: none;
+    padding: 0;
+}

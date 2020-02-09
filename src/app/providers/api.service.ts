@@ -10,8 +10,18 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  callApi(artista): Observable<any> {
+  // callApi(): Observable<any> {
+  //   return this.http.get(`${API_URL}/busca?artista=${artista}`);
+  // }
+
+  busca(artista): Observable<any> {
     return this.http.get(`${API_URL}/busca?artista=${artista}`);
   }
+
+  getArtista(id) {
+    return this.http.get(`${API_URL}/artista/${id}`);
+  }
+
+
   
 }

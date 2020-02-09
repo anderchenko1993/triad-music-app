@@ -1,1 +1,29 @@
-<p>artista works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">            
+            
+            <div class="artista">
+                <img src="{{ apiUrl }}/{{ artista.foto }}">
+
+                <h2>{{ artista.nome }}</h2>
+                <p>{{ artista.popularidade }} ouvintes mensais</p>
+
+                <h4>Álbuns</h4>
+                <ul>
+                    <li *ngFor="let album of artista.albuns">
+                        {{ album.nome }}
+                    </li>
+                </ul>
+
+                <h4>Gêneros</h4>
+                <ul>
+                    <li *ngFor="let genero of artista.generos">
+                        {{ genero.descricao }}
+                    </li>
+                </ul>                
+            </div>
+            
+        </div>  
+    </div>
+</div>
+
