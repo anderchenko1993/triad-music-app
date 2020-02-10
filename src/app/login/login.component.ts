@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private api: ApiService) { }
 
   ngOnInit() {
-    if( localStorage.getItem('user') ) {
+    if( localStorage.getItem('token') ) {
       this.router.navigate(['/']);
     }
   }
@@ -28,17 +28,20 @@ export class LoginComponent implements OnInit {
     await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((response) => {      
       if(response) {
         this.api.login(response).subscribe(result => {
-          if(result) {
-            localStorage.setItem('user', response.id);            
+          if(result) {                     
+            localStorage.setItem('token', response.authToken);                       
             this.router.navigate(['/']);
           }
+          else {
+            this.authService.signOut();
+            alert('Não foi possível autenticar-se, por favor, tente novamente');
+          }
         }, error => {
-          alert(error.message);
-       });
-       
+          console.log(error.message);
+       });       
       }
     }, error => {
-      alert(error.message);
+      console.log(error.message);
     });
   }
 

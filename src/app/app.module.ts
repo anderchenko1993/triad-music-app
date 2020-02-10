@@ -11,6 +11,9 @@ import { ApiService } from './providers/api.service';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './auth/token.interceptor';
+
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -40,6 +43,11 @@ export function provideConfig() {
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

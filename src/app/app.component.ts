@@ -9,8 +9,9 @@ import { AuthService } from "angularx-social-login";
 export class AppComponent {
   title = 'triad-music-app';
   logged: boolean;
+  collapsed: boolean = true;
 
-  constructor(private authService: AuthService) { 
+  constructor(private authService: AuthService) {     
     this.authService.authState.subscribe((user) => {
       if(user) {
         this.logged = true;
@@ -18,6 +19,10 @@ export class AppComponent {
       else 
       this.logged = false; 
     });
+  }
+
+  toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
   }
 
 }

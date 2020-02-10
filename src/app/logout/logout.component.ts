@@ -12,7 +12,7 @@ export class LogoutComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
     this.authService.signOut().then((response) => {
-      localStorage.removeItem('user');
+      localStorage.removeItem('token');
       this.router.navigate(['/login']);
     });
   }

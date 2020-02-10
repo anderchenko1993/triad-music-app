@@ -28,11 +28,20 @@ export class ArtistaComponent implements OnInit {
 
   async getArtista() {
     await this.api.getArtista(this.id).subscribe(artista => {
-      this.artista = artista;      
+      this.artista = artista; 
+      this.historico();   
     }, error => {
       alert(error.message);
     });
   }
 
+  historico() {
+    console.log(this.artista);
+    this.api.saveHistorico(this.artista).subscribe(historico => {
+   
+    }, error => {
+      console.log(error.message)
+    });
+  }
 
 }

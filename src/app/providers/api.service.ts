@@ -10,10 +10,9 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  busca(artista, user): Observable<any> {
+  buscaArtistas(artista): Observable<any> {
     const params = new HttpParams()
-    .set('artista', artista)
-    .set('user', user);
+    .set('artista', artista);
 
     return this.http.get(`${API_URL}/busca`, {params});
   }
@@ -22,8 +21,17 @@ export class ApiService {
     return this.http.get(`${API_URL}/artista/${id}`);
   }
 
-  historico(user): Observable<any> {
-    return this.http.get(`${API_URL}/historico/${user}`);
+  historico(): Observable<any> {
+    return this.http.get(`${API_URL}/historico`);
+  }
+
+  saveHistorico(artista): Observable<any> {
+    let body = new FormData();
+    body.append('id', artista.id);
+    
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'x-www-form-urlencoded');
+    return this.http.post(`${API_URL}/save-historico`, body, { headers: headers });
   }
 
   login(user): Observable<any> {
@@ -32,7 +40,7 @@ export class ApiService {
     body.append('name', user.name);
     body.append('token', user.authToken);
 
-    const headers = new HttpHeaders()
+    const headers = new HttpHeaders();
     headers.append('Content-Type', 'x-www-form-urlencoded');
     return this.http.post(`${API_URL}/login`, body, { headers: headers });
   }
