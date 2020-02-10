@@ -1,1 +1,18 @@
-<p>historico works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">            
+            
+            <label>Histórico</label>
+            
+            <ul>
+                <li *ngFor="let value of historico" [routerLink]="['/artista', artista.id]">                    
+                    <p>
+                        <b class="descricao">{{ value.artista.nome }}</b><br/>
+                        Data da pesquisa: {{ value.created_at | date: 'dd/MM/yyyy' }}
+                    </p>
+                </li>
+            </ul>
+            
+        </div>  
+    </div>
+</div>

@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from "angularx-social-login";
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -9,32 +7,15 @@ import { Router } from '@angular/router';
 })
 export class AuthGuard implements CanActivate {
 
-  user: any;
-  status: any;
-
-  constructor(private authService: AuthService, private router: Router) { 
+  constructor(private router: Router) { 
   }
 
   canActivate( next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if( this.isLoggedIn() ) {
+    if( localStorage.getItem('user') ) {
       return true;
     }
-    else {
-      this.router.navigate(['/login']);    
-      return false;
-    }
+
+    this.router.navigate(['/login']);    
+    return false;
   }  
-
-  async isLoggedIn() {
-    await this.authService.authState.subscribe((user) => {
-      if(user) {
-        return true;
-      } 
-      else {
-        this.router.navigate(['/login']);    
-        return false;
-      }
-    });
-  }
-
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from "angularx-social-login";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'triad-music-app';
+  logged: boolean;
+
+  constructor(private authService: AuthService) { 
+    this.authService.authState.subscribe((user) => {
+      if(user) {
+        this.logged = true;
+      }     
+      else 
+      this.logged = false; 
+    });
+  }
+
 }
