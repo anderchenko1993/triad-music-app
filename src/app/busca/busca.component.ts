@@ -19,7 +19,8 @@ export class BuscaComponent implements OnInit {
 
   async buscaArtistas(artista) {   
     if( artista.length > 4) {
-      await this.api.busca(artista).subscribe(artistas => {
+      let user = localStorage.getItem('user');
+      await this.api.busca(artista, user).subscribe(artistas => {
         this.artistas = artistas;        
       }, error => {
         alert(error.message);

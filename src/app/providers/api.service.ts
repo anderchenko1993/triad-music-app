@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { API_URL } from '../appsettings';
 import { Observable } from 'rxjs';
 
@@ -10,8 +10,12 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  busca(artista): Observable<any> {
-    return this.http.get(`${API_URL}/busca?artista=${artista}`);
+  busca(artista, user): Observable<any> {
+    const params = new HttpParams()
+    .set('artista', artista)
+    .set('user', user);
+
+    return this.http.get(`${API_URL}/busca`, {params});
   }
 
   getArtista(id): Observable<any> {
