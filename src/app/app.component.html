@@ -5,23 +5,28 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-          <li>
-              <i class="nav-item">
-                  <a class="nav-link" [routerLink]="['/']">
-                      Home
-                  </a>
-              </i>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/busca']">
-                  Busca
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/historico']">
-                  Histórico
-              </a>
-          </li>        
+            <li>
+                <i class="nav-item">
+                    <a class="nav-link" [routerLink]="['/']">
+                        Home
+                    </a>
+                </i>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/busca']">
+                    Busca
+                </a>
+            </li>
+                <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/historico']">
+                    Histórico
+                </a>
+            </li>    
+            <li class="nav-item">
+                <a class="nav-link btn-logout" (click)="signOut()">
+                    Sair
+                </a>
+            </li>                
       </ul>
   </div>
 </nav>
