@@ -19,7 +19,7 @@ export class ApiService {
   }
 
   historico(user): Observable<any> {
-    return this.http.get(`${API_URL}/user/${user}`);
+    return this.http.get(`${API_URL}/historico/${user}`);
   }
 
   login(user): Observable<any> {

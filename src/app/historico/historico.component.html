@@ -2,13 +2,13 @@
     <div class="row justify-content-center">
         <div class="col-md-6">            
             
-            <label>Histórico</label>
+            <h2 class="descricao">Histórico</h2>
             
             <ul>
-                <li *ngFor="let value of historico" [routerLink]="['/artista', artista.id]">                    
+                <li *ngFor="let value of historico" [routerLink]="['/artista', value.artista.id]">                    
                     <p>
                         <b class="descricao">{{ value.artista.nome }}</b><br/>
-                        Data da pesquisa: {{ value.created_at | date: 'dd/MM/yyyy' }}
+                        Data da pesquisa: {{ value.created_at | date: 'dd/MM/yyyy HH:mm:ss' }}
                     </p>
                 </li>
             </ul>

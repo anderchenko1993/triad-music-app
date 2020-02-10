@@ -18,7 +18,7 @@ export class HistoricoComponent implements OnInit {
   }
 
   async buscaHistorico() {
-    let user = localStorage.getItem('user')
+    let user = localStorage.getItem('user');
 
     await this.api.historico(user).subscribe(historico => {
       this.historico = historico;        

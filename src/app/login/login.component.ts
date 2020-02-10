@@ -25,8 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   async signInWithGoogle() {
-    await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((response) => {
-      console.log(response);
+    await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((response) => {      
       if(response) {
         this.api.login(response).subscribe(result => {
           if(result) {
